@@ -28,7 +28,7 @@ idemp sayhello && echo "I will only say this once"
 
 Notice that no matter how many times you run this command, it only echoes the message once.  That's because idemp creates files in ~/.idemp/ to track what's already been run, and ensures that nothing is run more than once, thus achieving idempotency.
 
-See sample.sh for an example of using it to provision a new user and install Zip and Solr on Ubuntu.
+See sample.sh for a heftier example of using idemp to remotely provision a new user over ssh and install Zip and Solr on Ubuntu.
 
 # Q and A
 
