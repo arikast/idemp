@@ -51,4 +51,4 @@ Idemp has the following drawbacks versus Chef, Puppet, Ansible, Salt, etc:
 - It doesn't have a GUI
 
 
-Obviously this tool is likely not what you need for major 100+ server farms.  But what I see far more frequently is teams with a handful of boxes with modest needs struggling to understand their enterprise management tool when all they really needed was idempotency.  Hence this script, enjoy :)
+Obviously this tool is a quick hack, it is likely not what you need for major 100+ server farms.  But what I see far more frequently is teams with a handful of boxes with modest needs struggling to understand their enterprise management tool when all they really needed was idempotency.  What this tool lacks in features it makes up for in simplicity.  At it can be used until you outgrow it, which may never happen :)
