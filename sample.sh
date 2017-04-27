@@ -2,6 +2,7 @@
 
 ssh your.server.ip.here '
 
+##### copy paste the core function here
 function idemp() {
     DEMPODIR="$HOME/.idemp"
     mkdir -p $DEMPODIR
@@ -15,6 +16,7 @@ function idemp() {
     fi
 }
 
+##### your code goes below here
 idemp apt_get_update && sudo apt-get update 
 idemp zip && sudo apt-get install -y unzip
 
