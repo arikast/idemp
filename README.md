@@ -22,7 +22,7 @@ function idemp() {
 
 It touches files in ~/.idemp/ to keep track of what's already been run so that nothing gets run more than once.
 
-See sample.sh for an example of using it to provision a new user and install Solr.
+See sample.sh for an example of using it to provision a new user and install Zip and Solr on Ubuntu.
 
 # Q and A
 

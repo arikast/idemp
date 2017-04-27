@@ -1,3 +1,5 @@
+#### example showing how the idempotency script can be used
+
 ssh your.server.ip.here '
 
 function idemp() {
@@ -17,15 +19,18 @@ idemp apt_get_update && sudo apt-get update
 idemp zip && sudo apt-get install -y unzip
 
 ### make a solr user
-idemp solruser && useradd solruser
-sudo mkdir -p /var/tools/solr
-sudo chown solruser:solruser /var/tools/solr
+idemp solruser && sudo useradd solruser
 
-cd /var/tools/solr
+### install solr
 idemp solrdownload && {
-    curl -O http://archive.apache.org/dist/lucene/solr/6.4.1/solr-6.4.1.zip 
-    unzip solr-6.4.1.zip
-    ln -s solr-6.4.1.zip solr
+    sudo mkdir -p /var/tools/solr
+    sudo chown solruser:solruser /var/tools/solr
+    cd /var/tools/solr
+
+    sudo -u solruser -- curl -O http://archive.apache.org/dist/lucene/solr/6.4.1/solr-6.4.1.zip 
+    sudo -u solruser -- unzip solr-6.4.1.zip
+    sudo -u solruser -- ln -s solr-6.4.1.zip solr
+    cd -
 }
 '
 
