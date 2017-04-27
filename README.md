@@ -20,7 +20,13 @@ function idemp() {
 }
 ```
 
-It touches files in ~/.idemp/ to keep track of what's already been run so that nothing gets run more than once.
+With this function in place, you can now use it like this:
+
+```
+idemp sayhello && echo "I will only say this once"
+```
+
+Notice that no matter how many times you run this command, it only echoes the message once.  That's because idemp creates files in ~/.idemp/ to track what's already been run, and ensures that nothing is run more than once, thus achieving idempotency.
 
 See sample.sh for an example of using it to provision a new user and install Zip and Solr on Ubuntu.
 
