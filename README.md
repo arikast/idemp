@@ -45,7 +45,7 @@ Feature-wise, this tool allows for the following:
 - You need to push over some configs?  Put this in your script: rsync -e ssh -rav /your/local/config theremoteurl:remotefilepath/
 - No black box magic.  You know exactly what the tool is up to.  Black boxes are wonderful as long as they are 100% reliable.  I have yet to find such a box in the configuration management space.
 
-Idemp has at least the following drawbacks versus Chef, Puppet, Ansible, Salt, etc:
+Idemp also has these drawbacks (among others) versus Chef, Puppet, Ansible, Salt, etc:
 
 - It works only on Linux-like systems, eg Unix, BSD, or OS-X 
 - For heterogenous environments, the same command may need to be written multiple ways.  Eg on one machine you may need to "yum" while on another you might "apt-get" for the same thing.
@@ -59,4 +59,4 @@ Idemp has at least the following drawbacks versus Chef, Puppet, Ansible, Salt, e
 - It doesn't have a GUI
 
 
-Obviously this tool is a quick hack, it is likely not what you need for major 100+ server farms.  But what I see far more frequently is teams with a handful of boxes with modest needs struggling to understand their enterprise management tool when all they really needed was idempotency.  What this tool lacks in features it makes up for in simplicity.  At least it can be used until you outgrow it, which may never happen :)
+Obviously this tool is a quick hack, it is likely not what you need for major 100+ server farms.  But what I see so frequently is teams with a handful of boxes with modest needs struggling to understand their enterprise management tool when all they really needed was idempotency.  What this tool lacks in features it makes up for in simplicity.  At least it can be used until you outgrow it, which may never happen :)
