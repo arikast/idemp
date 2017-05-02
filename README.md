@@ -34,7 +34,7 @@ See sample.sh for a heftier example of using idemp to remotely provision a new u
 
 #### How does this tool stack up against enterprise provisioning tools like Chef, Puppet, Ansible, Salt, etc?
 
-Well obviously it's a whole lot simpler.  Like, no learning curve whatsoever besides Bash itself, which is an investment that will yield dividends across many arenas should you choose to learn it.
+Well obviously it's not in their league.  But equally obviously, it's a whole lot simpler.  Like, no learning curve whatsoever besides Bash itself, which is an investment that will yield dividends across many arenas should you choose to learn it.
 
 Feature-wise, this tool allows for the following:
 
@@ -42,9 +42,10 @@ Feature-wise, this tool allows for the following:
 - EASY debugging, and I mean easy!  It's Bash -- odds are you already know it.  Want to "force" rerun something?  Just delete the tracking file from ~/.idemp/
 - You want parallel execution?  Bash has that built-in, just end your command with &
 - You want a report of what state your system is in, a list of what has been installed and when it was done?  `ls -l ~/.idemp`
-- No black box magic.  You know exactly what the tool is up to.  Black boxes are wonderful as long as they are 100% reliable.  I haven't yet found such a box in the configuration management space.
+- You need to push over some configs?  Put this in your script: rsync -e ssh -rav /your/local/config theremoteurl:remotefilepath/
+- No black box magic.  You know exactly what the tool is up to.  Black boxes are wonderful as long as they are 100% reliable.  I have yet to find such a box in the configuration management space.
 
-Idemp has the following drawbacks versus Chef, Puppet, Ansible, Salt, etc:
+Idemp has at least the following drawbacks versus Chef, Puppet, Ansible, Salt, etc:
 
 - It works only on Linux-like systems, eg Unix, BSD, or OS-X 
 - For heterogenous environments, the same command may need to be written multiple ways.  Eg on one machine you may need to "yum" while on another you might "apt-get" for the same thing.
@@ -54,6 +55,7 @@ Idemp has the following drawbacks versus Chef, Puppet, Ansible, Salt, etc:
 - It cannot diagnose and repair a system that was provisioned via other means.  These days with AWS though, boxes are increasingly disposable: many people prefer to just re-build from scratch rather than diagnose and repair
 - It is procedural, not declarative.  I consider this an advantage for troubleshooting and reasoning about the system, but philosophies differ on this point.
 - No pre-written "easy install" modules to do fancy things (or even simple things).  AWS provisioning, setting up users, network config, and on and on.  You have to do it yourself.  But on the plus side, no vendor lock-in.  Everything is solvable.
+- It doesn't have built-in code templating (but your command line does, it's called "m4")
 - It doesn't have a GUI
 
 
