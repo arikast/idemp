@@ -34,7 +34,7 @@ See sample.sh for a heftier example of using idemp to remotely provision a new u
 
 #### How does this tool stack up against enterprise provisioning tools like Chef, Puppet, Ansible, Salt, etc?
 
-Well obviously it's not in their league.  But equally obviously, it's a whole lot simpler.  Like, no learning curve whatsoever besides Bash itself, which is an investment that will yield dividends across many arenas should you choose to learn it.
+Well obviously it's a whole lot less.  But that also means it's a whole lot simpler.  Like, no learning curve whatsoever besides Bash itself, which is an investment that will yield dividends across many arenas should you choose to learn it.
 
 Feature-wise, this tool allows for the following:
 
