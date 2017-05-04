@@ -23,12 +23,17 @@ function idemp() {
     fi
 }
 
+
 idemp installIdemp && {
     declare -f idemp > .idemp-tool.sh
     chmod 755 .idemp-tool.sh
+    echo ". .idemp-tool.sh" >> .profile
 }
 
-##### your code goes below here
+true
+'
+
+ssh your.server.ip.here '. $HOME/.idemp-tool.sh
 
 idemp apt_get_update && sudo apt-get update 
 idemp zip && sudo apt-get install -y unzip

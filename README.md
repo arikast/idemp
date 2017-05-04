@@ -22,7 +22,10 @@ function idemp() {
 idemp installIdemp && {
     declare -f idemp > .idemp-tool.sh
     chmod 755 .idemp-tool.sh
+    echo ". .idemp-tool.sh" >> .profile
 }
+
+true
 ```
 
 With this function in place, you can now use it like this:
