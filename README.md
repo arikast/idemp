@@ -18,6 +18,11 @@ function idemp() {
         return 1
     fi
 }
+
+idemp installIdemp && {
+    declare -f idemp > .idemp-tool.sh
+    echo ". .idemp-tool.sh" >> .bashrc
+}
 ```
 
 With this function in place, you can now use it like this:

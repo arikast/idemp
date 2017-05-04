@@ -23,6 +23,11 @@ function idemp() {
     fi
 }
 
+idemp installIdemp && {
+    declare -f idemp > .idemp-tool.sh
+    echo ". .idemp-tool.sh" >> .bashrc
+}
+
 ##### your code goes below here
 
 idemp apt_get_update && sudo apt-get update 
