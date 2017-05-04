@@ -21,7 +21,7 @@ function idemp() {
 
 idemp installIdemp && {
     declare -f idemp > .idemp-tool.sh
-    echo ". .idemp-tool.sh" >> .bashrc
+    chmod 755 .idemp-tool.sh
 }
 ```
 
