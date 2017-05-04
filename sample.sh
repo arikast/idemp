@@ -6,7 +6,7 @@ TOOLSDIR=/var/tools
 SOLRUSER=solruser
 
 
-#### setup the box in a giant ssh statement
+#### bootstrap the idemp tool onto the box 
 ssh your.server.ip.here '
 
 ##### the core idemp function 
@@ -33,6 +33,13 @@ idemp installIdemp && {
 true
 '
 
+### append entries into remote /etc/hosts from a local config file.  rely on the remote box's idemp to only run this once
+ssh your.server.ip.here '. ~/.idemp-tool.sh && idemp addhosts' && {
+    echo "updating hosts"
+    ssh showfindr.dev.website 'sudo tee -a /etc/hosts' < myhosts.conf
+}
+
+### use idemp for idempotency
 ssh your.server.ip.here '. $HOME/.idemp-tool.sh
 
 idemp apt_get_update && sudo apt-get update 
