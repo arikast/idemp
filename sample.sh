@@ -59,6 +59,7 @@ idemp solrdownload && {
     sudo -u '$SOLRUSER' -- ln -s solr-6.4.1.zip solr
     cd -
 }
+true
 '
 
 echo "done"
