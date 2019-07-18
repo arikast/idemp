@@ -9,9 +9,18 @@ The entirety of the tool is expressed here:
 function idemp() {
     DEMPODIR="$HOME/.idemp"
     mkdir -p $DEMPODIR
-    FLAG="$DEMPODIR/$1"
 
-    if [ ! -f "$FLAG" ]; then
+    while test $# -gt 0; do
+        case "$1" in
+            -f) local FORCE=1
+                ;;
+            *) local FLAG="$DEMPODIR/$1"
+                ;;
+        esac
+        shift
+    done
+
+    if [ "$FORCE" != "" ] || [ ! -f "$FLAG" ]; then
         touch "$FLAG"
         return 0
     else
@@ -47,7 +56,7 @@ Well obviously it's a whole lot less.  But that also means it's a whole lot simp
 Feature-wise, this tool allows for the following:
 
 - Idempotency. Add new requirements freely and rerun your script.  Only the new stuff will be executed. 
-- EASY debugging, and I mean easy!  It's Bash -- odds are you already know it.  Want to "force" rerun something?  Just delete the tracking file from ~/.idemp/
+- EASY debugging, and I mean easy!  It's Bash -- odds are you already know it.  Want to "force" rerun something?  Just delete the tracking file from ~/.idemp/ (or use the -f flag)
 - You want parallel execution?  Bash has that built-in, just end your command with &
 - You want a report of what state your system is in, a list of what has been installed and when it was done?  `ls -l ~/.idemp`
 - You need to push over some configs?  Put this in your script: rsync -e ssh -rav /your/local/config theremoteurl:remotefilepath/

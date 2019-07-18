@@ -13,9 +13,18 @@ ssh your.server.ip.here '
 function idemp() {
     DEMPODIR="$HOME/.idemp"
     mkdir -p $DEMPODIR
-    FLAG="$DEMPODIR/$1"
 
-    if [ ! -f "$FLAG" ]; then
+    while test $# -gt 0; do
+        case "$1" in
+            -f) local FORCE=1
+                ;;
+            *) local FLAG="$DEMPODIR/$1"
+                ;;
+        esac
+        shift
+    done
+
+    if [ "$FORCE" != "" ] || [ ! -f "$FLAG" ]; then
         touch "$FLAG"
         return 0
     else
